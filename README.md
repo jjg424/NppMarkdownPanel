@@ -30,15 +30,15 @@ If you encounter build errors after cloning, follow these steps:
    > **WARNING:** You MUST use **DllExport 1.7.4**. Using DllExport 1.8.1 or skipping this step will cause the plugin to fail loading with error:
    >
    > `NppMarkdownPanel.dll is not compatible with the current version of Notepad++`
-
+	![DllExport Configuration Step 1](set2.png)
    - Double-click `DllExport.bat` in the project root
    - In the popup window:
      1. Select the solution file `NppMarkdownPanel.sln`
      2. Ensure **DllExport 1.7.4** is being used (NOT 1.8.1)
      3. Click **Apply** to inject DllExport into the project
 
-   ![DllExport Configuration Step 1](DllExport_1.7.4_InjectionScreenshot.png)
-   ![DllExport Configuration Step 2](DllExport_1.7.4_InjectionScreenshot2.png)
+   ![DllExport Configuration Step 1](set3.png)
+   ![DllExport Configuration Step 2](set4.png)
 
 3. **Modify build.ps1** (if using PowerShell build script):
 
