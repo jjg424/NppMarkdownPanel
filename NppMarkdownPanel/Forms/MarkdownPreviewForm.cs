@@ -18,10 +18,11 @@ namespace NppMarkdownPanel.Forms
         const string DEFAULT_HTML_BASE =
          @"<!DOCTYPE html>
             <html>
-                <head>                    
+                <head>
                     <meta http-equiv=""X-UA-Compatible"" content=""IE=edge""></meta>
                     <meta http-equiv=""content-type"" content=""text/html; charset=utf-8""></meta>
                     <title>{0}</title>
+                    {4}
                     <style type=""text/css"">
                     {1}
                     </style>
@@ -140,11 +141,12 @@ namespace NppMarkdownPanel.Forms
         {
             var defaultBodyStyle = "";
             var markdownStyleContent = GetCssContent(filepath);
+            var customHeadContent = GetCustomHeadContent();
 
             if (!IsValidFileExtension(currentFilePath))
             {
                 var invalidExtensionMessageBody = string.Format(MSG_NO_SUPPORTED_FILE_EXT, Path.GetFileName(filepath), settings.SupportedFileExt);
-                var invalidExtensionMessage = string.Format(DEFAULT_HTML_BASE, Path.GetFileName(filepath), markdownStyleContent, defaultBodyStyle, invalidExtensionMessageBody);
+                var invalidExtensionMessage = string.Format(DEFAULT_HTML_BASE, Path.GetFileName(filepath), markdownStyleContent, defaultBodyStyle, invalidExtensionMessageBody, customHeadContent);
 
                 return new RenderResult(invalidExtensionMessage, invalidExtensionMessage, invalidExtensionMessageBody, markdownStyleContent);
             }
@@ -152,8 +154,8 @@ namespace NppMarkdownPanel.Forms
             var resultForBrowser = markdownService.ConvertToHtml(currentText, filepath, true);
             var resultForExport = markdownService.ConvertToHtml(currentText, null, false);
 
-            var markdownHtmlBrowser = string.Format(DEFAULT_HTML_BASE, Path.GetFileName(filepath), markdownStyleContent, defaultBodyStyle, resultForBrowser);
-            var markdownHtmlFileExport = string.Format(DEFAULT_HTML_BASE, Path.GetFileName(filepath), markdownStyleContent, defaultBodyStyle, resultForExport);
+            var markdownHtmlBrowser = string.Format(DEFAULT_HTML_BASE, Path.GetFileName(filepath), markdownStyleContent, defaultBodyStyle, resultForBrowser, customHeadContent);
+            var markdownHtmlFileExport = string.Format(DEFAULT_HTML_BASE, Path.GetFileName(filepath), markdownStyleContent, defaultBodyStyle, resultForExport, customHeadContent);
             return new RenderResult(markdownHtmlBrowser, markdownHtmlFileExport, resultForBrowser, markdownStyleContent);
         }
 
@@ -176,6 +178,16 @@ namespace NppMarkdownPanel.Forms
             }
 
             return cssContent;
+        }
+
+        private string GetCustomHeadContent()
+        {
+            var customHeadFile = settings.CustomHeadFile;
+            if (string.IsNullOrEmpty(customHeadFile))
+                return "";
+            if (!File.Exists(customHeadFile))
+                return "";
+            return File.ReadAllText(customHeadFile);
         }
 
         public void RenderMarkdown(string currentText, string filepath, bool preserveVerticalScrollPosition = true)

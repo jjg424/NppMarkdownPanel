@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    $(function() {
+        console.log("Page DOM has finished loading, our script is starting execution.");
+
+        // Check if jQuery has loaded successfully
+        if (typeof jQuery !== 'undefined') {
+            console.log("jQuery has loaded successfully! Version: " + jQuery.fn.jquery);
+            
+            $(document).ready(function() {
+                // Start the timer
+                colorInterval = setInterval(changeBackgroundColor, 1000);
+                changeBackgroundColor(); // Execute immediately once
+
+                // Add click event for the "Stop" button
+                $('#stopButton').click(function() {
+                    clearInterval(colorInterval); // Stop the timer using its ID
+                    $('#status').text('Color changing has stopped.');
+                    console.log("Timer has been stopped.");
+                });
+            });
+        } else {
+            console.log("Warning: jQuery has not loaded successfully!");
+        }
+    });
+
+    var colorInterval; // Global variable to store the timer ID
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    
+    function changeBackgroundColor() {
+        var randomColor = getRandomColor();
+        $('body').css('background-color', randomColor);
+        $('#colorDisplay').text("Current background color: " + randomColor);
+    }
+</script>

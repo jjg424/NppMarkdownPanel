@@ -60,6 +60,10 @@
             this.cbShowToolbar = new System.Windows.Forms.CheckBox();
             this.cbShowStatusbar = new System.Windows.Forms.CheckBox();
             this.cbAllowAllExtensions = new System.Windows.Forms.CheckBox();
+            this.tbCustomHead = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnChooseCustomHead = new System.Windows.Forms.Button();
+            this.btnDefaultCustomHead = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -84,7 +88,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(40, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 20);
+            this.label1.Size = new System.Drawing.Size(149, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Markdown Panel Settings";
             // 
@@ -125,7 +129,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "CSS File:";
             // 
@@ -135,16 +139,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbCssFile.Location = new System.Drawing.Point(170, 119);
             this.tbCssFile.Name = "tbCssFile";
-            this.tbCssFile.Size = new System.Drawing.Size(386, 25);
+            this.tbCssFile.Size = new System.Drawing.Size(386, 21);
             this.tbCssFile.TabIndex = 2;
             this.tbCssFile.TextChanged += new System.EventHandler(this.tbCssFile_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 217);
+            this.label3.Location = new System.Drawing.Point(13, 282);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 17);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Zoom Level:";
             // 
@@ -153,11 +157,11 @@
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.LargeChange = 1;
-            this.trackBar1.Location = new System.Drawing.Point(164, 217);
+            this.trackBar1.Location = new System.Drawing.Point(165, 267);
             this.trackBar1.Maximum = 800;
             this.trackBar1.Minimum = 80;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(474, 56);
+            this.trackBar1.Size = new System.Drawing.Size(474, 45);
             this.trackBar1.TabIndex = 8;
             this.trackBar1.TickFrequency = 5;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -168,9 +172,9 @@
             // 
             this.lblZoomValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblZoomValue.AutoSize = true;
-            this.lblZoomValue.Location = new System.Drawing.Point(644, 232);
+            this.lblZoomValue.Location = new System.Drawing.Point(645, 282);
             this.lblZoomValue.Name = "lblZoomValue";
-            this.lblZoomValue.Size = new System.Drawing.Size(33, 17);
+            this.lblZoomValue.Size = new System.Drawing.Size(28, 13);
             this.lblZoomValue.TabIndex = 7;
             this.lblZoomValue.Text = "90%";
             // 
@@ -199,7 +203,7 @@
             // btnResetHtml
             // 
             this.btnResetHtml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetHtml.Location = new System.Drawing.Point(607, 294);
+            this.btnResetHtml.Location = new System.Drawing.Point(608, 331);
             this.btnResetHtml.Name = "btnResetHtml";
             this.btnResetHtml.Size = new System.Drawing.Size(73, 28);
             this.btnResetHtml.TabIndex = 11;
@@ -210,7 +214,7 @@
             // btnChooseHtml
             // 
             this.btnChooseHtml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChooseHtml.Location = new System.Drawing.Point(562, 294);
+            this.btnChooseHtml.Location = new System.Drawing.Point(563, 331);
             this.btnChooseHtml.Name = "btnChooseHtml";
             this.btnChooseHtml.Size = new System.Drawing.Size(39, 27);
             this.btnChooseHtml.TabIndex = 10;
@@ -222,9 +226,9 @@
             // 
             this.tbHtmlFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbHtmlFile.Location = new System.Drawing.Point(170, 296);
+            this.tbHtmlFile.Location = new System.Drawing.Point(171, 333);
             this.tbHtmlFile.Name = "tbHtmlFile";
-            this.tbHtmlFile.Size = new System.Drawing.Size(386, 25);
+            this.tbHtmlFile.Size = new System.Drawing.Size(386, 21);
             this.tbHtmlFile.TabIndex = 9;
             this.tbHtmlFile.TextChanged += new System.EventHandler(this.tbHtmlFile_TextChanged);
             this.tbHtmlFile.Leave += new System.EventHandler(this.tbHtmlFile_Leave);
@@ -232,9 +236,9 @@
             // lblHtmlFile
             // 
             this.lblHtmlFile.AutoSize = true;
-            this.lblHtmlFile.Location = new System.Drawing.Point(12, 286);
+            this.lblHtmlFile.Location = new System.Drawing.Point(13, 323);
             this.lblHtmlFile.Name = "lblHtmlFile";
-            this.lblHtmlFile.Size = new System.Drawing.Size(125, 51);
+            this.lblHtmlFile.Size = new System.Drawing.Size(108, 39);
             this.lblHtmlFile.TabIndex = 10;
             this.lblHtmlFile.Text = "Automatically Save \r\nHTML from Current \r\nPreview to this File:";
             // 
@@ -255,7 +259,7 @@
             this.sblInvalidHtmlPath.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.sblInvalidHtmlPath.ForeColor = System.Drawing.Color.Red;
             this.sblInvalidHtmlPath.Name = "sblInvalidHtmlPath";
-            this.sblInvalidHtmlPath.Size = new System.Drawing.Size(681, 16);
+            this.sblInvalidHtmlPath.Size = new System.Drawing.Size(681, 17);
             this.sblInvalidHtmlPath.Spring = true;
             // 
             // btnDefaultDarkmodeCss
@@ -286,7 +290,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDarkmodeCssFile.Location = new System.Drawing.Point(170, 167);
             this.tbDarkmodeCssFile.Name = "tbDarkmodeCssFile";
-            this.tbDarkmodeCssFile.Size = new System.Drawing.Size(386, 25);
+            this.tbDarkmodeCssFile.Size = new System.Drawing.Size(386, 21);
             this.tbDarkmodeCssFile.TabIndex = 5;
             this.tbDarkmodeCssFile.TextChanged += new System.EventHandler(this.tbDarkmodeCssFile_TextChanged);
             // 
@@ -295,7 +299,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 170);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 17);
+            this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Darkmode CSS File:";
             // 
@@ -313,7 +317,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbFileExt.Location = new System.Drawing.Point(170, 397);
             this.tbFileExt.Name = "tbFileExt";
-            this.tbFileExt.Size = new System.Drawing.Size(386, 25);
+            this.tbFileExt.Size = new System.Drawing.Size(386, 21);
             this.tbFileExt.TabIndex = 15;
             this.tbFileExt.TextChanged += new System.EventHandler(this.tbFileExt_TextChanged);
             // 
@@ -333,7 +337,7 @@
             this.cbAutoShowPanel.AutoSize = true;
             this.cbAutoShowPanel.Location = new System.Drawing.Point(170, 439);
             this.cbAutoShowPanel.Name = "cbAutoShowPanel";
-            this.cbAutoShowPanel.Size = new System.Drawing.Size(290, 21);
+            this.cbAutoShowPanel.Size = new System.Drawing.Size(257, 17);
             this.cbAutoShowPanel.TabIndex = 17;
             this.cbAutoShowPanel.Text = "Automatically show panel for supported files";
             this.cbAutoShowPanel.UseVisualStyleBackColor = true;
@@ -344,7 +348,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 17);
+            this.label6.Size = new System.Drawing.Size(135, 13);
             this.label6.TabIndex = 26;
             this.label6.Text = "HTML Rendering Engine:";
             // 
@@ -359,7 +363,7 @@
             "Internet Explorer 11 (WebView 1)"});
             this.comboRenderingEngine.Location = new System.Drawing.Point(170, 80);
             this.comboRenderingEngine.Name = "comboRenderingEngine";
-            this.comboRenderingEngine.Size = new System.Drawing.Size(511, 25);
+            this.comboRenderingEngine.Size = new System.Drawing.Size(511, 20);
             this.comboRenderingEngine.TabIndex = 1;
             this.comboRenderingEngine.SelectedIndexChanged += new System.EventHandler(this.comboRenderingEngine_SelectedIndexChanged);
             // 
@@ -368,7 +372,7 @@
             this.cbShowToolbar.AutoSize = true;
             this.cbShowToolbar.Location = new System.Drawing.Point(170, 466);
             this.cbShowToolbar.Name = "cbShowToolbar";
-            this.cbShowToolbar.Size = new System.Drawing.Size(223, 21);
+            this.cbShowToolbar.Size = new System.Drawing.Size(199, 17);
             this.cbShowToolbar.TabIndex = 18;
             this.cbShowToolbar.Text = "Show Toolbar in Preview Window";
             this.cbShowToolbar.UseVisualStyleBackColor = true;
@@ -379,7 +383,7 @@
             this.cbShowStatusbar.AutoSize = true;
             this.cbShowStatusbar.Location = new System.Drawing.Point(170, 495);
             this.cbShowStatusbar.Name = "cbShowStatusbar";
-            this.cbShowStatusbar.Size = new System.Drawing.Size(321, 21);
+            this.cbShowStatusbar.Size = new System.Drawing.Size(286, 17);
             this.cbShowStatusbar.TabIndex = 19;
             this.cbShowStatusbar.Text = "Show Statusbar in Preview Window (Preview Links)";
             this.cbShowStatusbar.UseVisualStyleBackColor = true;
@@ -388,20 +392,66 @@
             // cbAllowAllExtensions
             // 
             this.cbAllowAllExtensions.AutoSize = true;
-            this.cbAllowAllExtensions.Location = new System.Drawing.Point(170, 357);
+            this.cbAllowAllExtensions.Location = new System.Drawing.Point(171, 372);
             this.cbAllowAllExtensions.Name = "cbAllowAllExtensions";
-            this.cbAllowAllExtensions.Size = new System.Drawing.Size(164, 21);
+            this.cbAllowAllExtensions.Size = new System.Drawing.Size(147, 17);
             this.cbAllowAllExtensions.TabIndex = 14;
             this.cbAllowAllExtensions.Text = "Allow all file extensions";
             this.cbAllowAllExtensions.UseVisualStyleBackColor = true;
             this.cbAllowAllExtensions.CheckedChanged += new System.EventHandler(this.cbAllowAllExtensions_CheckedChanged);
             // 
+            // tbCustomHead
+            // 
+            this.tbCustomHead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCustomHead.Location = new System.Drawing.Point(170, 212);
+            this.tbCustomHead.Name = "tbCustomHead";
+            this.tbCustomHead.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbCustomHead.Size = new System.Drawing.Size(386, 21);
+            this.tbCustomHead.TabIndex = 12;
+            this.tbCustomHead.TextChanged += new System.EventHandler(this.tbCustomHead_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 212);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Custom Head Content:";
+            // 
+            // btnChooseCustomHead
+            // 
+            this.btnChooseCustomHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChooseCustomHead.Location = new System.Drawing.Point(562, 212);
+            this.btnChooseCustomHead.Name = "btnChooseCustomHead";
+            this.btnChooseCustomHead.Size = new System.Drawing.Size(39, 25);
+            this.btnChooseCustomHead.TabIndex = 13;
+            this.btnChooseCustomHead.Text = "...";
+            this.btnChooseCustomHead.UseVisualStyleBackColor = true;
+            this.btnChooseCustomHead.Click += new System.EventHandler(this.btnChooseCustomHead_Click);
+            // 
+            // btnDefaultCustomHead
+            // 
+            this.btnDefaultCustomHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDefaultCustomHead.Location = new System.Drawing.Point(607, 212);
+            this.btnDefaultCustomHead.Name = "btnDefaultCustomHead";
+            this.btnDefaultCustomHead.Size = new System.Drawing.Size(73, 26);
+            this.btnDefaultCustomHead.TabIndex = 14;
+            this.btnDefaultCustomHead.Text = "Default";
+            this.btnDefaultCustomHead.UseVisualStyleBackColor = true;
+            this.btnDefaultCustomHead.Click += new System.EventHandler(this.btnDefaultCustomHead_Click);
+            // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(696, 618);
+            this.Controls.Add(this.btnDefaultCustomHead);
+            this.Controls.Add(this.btnChooseCustomHead);
+            this.Controls.Add(this.tbCustomHead);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.cbAllowAllExtensions);
             this.Controls.Add(this.comboRenderingEngine);
             this.Controls.Add(this.label6);
@@ -480,5 +530,9 @@
         private System.Windows.Forms.CheckBox cbShowToolbar;
         private System.Windows.Forms.CheckBox cbShowStatusbar;
         private System.Windows.Forms.CheckBox cbAllowAllExtensions;
+        private System.Windows.Forms.TextBox tbCustomHead;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnChooseCustomHead;
+        private System.Windows.Forms.Button btnDefaultCustomHead;
     }
 }

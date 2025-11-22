@@ -91,6 +91,7 @@ namespace NppMarkdownPanel
             settings.IsDarkModeEnabled = IsDarkModeEnabled();
             settings.AutoShowPanel = PluginUtils.ReadIniBool("Options", "AutoShowPanel", iniFilePath);
             settings.RenderingEngine = Win32.ReadIniValue("Options", "RenderingEngine", iniFilePath, Settings.RENDERING_ENGINE_WEBVIEW2_EDGE);
+            settings.CustomHeadFile = Win32.ReadIniValue("Options", "CustomHeadFile", iniFilePath, "");
             return settings;
         }
 
@@ -219,6 +220,7 @@ namespace NppMarkdownPanel
                 settings.ShowStatusbar = settingsForm.ShowStatusbar;
                 settings.AutoShowPanel = settingsForm.AutoShowPanel;
                 settings.RenderingEngine = settingsForm.RenderingEngine;
+                settings.CustomHeadFile = settingsForm.CustomHeadFile;
 
                 settings.IsDarkModeEnabled = IsDarkModeEnabled();
                 viewerInterface.UpdateSettings(settings);
@@ -299,6 +301,7 @@ namespace NppMarkdownPanel
             Win32.WriteIniValue("Options", "AutoShowPanel", settings.AutoShowPanel.ToString(), iniFilePath);
             Win32.WriteIniValue("Options", "AllowAllExtensions", settings.AllowAllExtensions.ToString(), iniFilePath);
             Win32.WriteIniValue("Options", "RenderingEngine", settings.RenderingEngine, iniFilePath);
+            Win32.WriteIniValue("Options", "CustomHeadFile", settings.CustomHeadFile, iniFilePath);
         }
         private void ShowAboutDialog()
         {

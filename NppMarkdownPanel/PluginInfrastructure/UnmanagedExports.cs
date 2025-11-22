@@ -3,7 +3,8 @@ using System;
 using System.Runtime.InteropServices;
 using Kbg.NppPluginNET.PluginInfrastructure;
 using NppMarkdownPanel;
-using NppPlugin.DllExport;
+// DllExport通过DllExport.bat配置后会自动注入,无需显式引用
+// using NppPlugin.DllExport;
 
 namespace Kbg.NppPluginNET
 {

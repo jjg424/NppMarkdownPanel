@@ -34,6 +34,7 @@ namespace NppMarkdownPanel.Entities
         public string PostProcessorArguments { get; set; }
 
         public string RenderingEngine { get; set; }
+        public string CustomHeadFile { get; set; }
 
         public bool IsRenderingEngineIE11()
         {

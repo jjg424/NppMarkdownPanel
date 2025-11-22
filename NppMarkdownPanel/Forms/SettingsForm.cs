@@ -16,6 +16,7 @@ namespace NppMarkdownPanel.Forms
         public bool AutoShowPanel { get; set; }
         public bool ShowStatusbar { get; set; }
         public string RenderingEngine { get; set; }
+        public string CustomHeadFile { get; set; }
 
 
         public SettingsForm(Settings settings)
@@ -30,6 +31,7 @@ namespace NppMarkdownPanel.Forms
             ShowStatusbar = settings.ShowStatusbar;
             RenderingEngine = settings.RenderingEngine;
             AllowAllExtensions = settings.AllowAllExtensions;
+            CustomHeadFile = settings.CustomHeadFile;
 
             InitializeComponent();
 
@@ -43,6 +45,7 @@ namespace NppMarkdownPanel.Forms
             cbAutoShowPanel.Checked = AutoShowPanel;
             cbShowStatusbar.Checked = ShowStatusbar;
             cbAllowAllExtensions.Checked = AllowAllExtensions;
+            tbCustomHead.Text = CustomHeadFile;
 
             if (settings.IsRenderingEngineIE11())
             {
@@ -228,6 +231,31 @@ namespace NppMarkdownPanel.Forms
             {
                 tbFileExt.Enabled = true;
             }
+        }
+
+        private void btnChooseCustomHead_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "All files (*.*)|*.*";
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    CustomHeadFile = openFileDialog.FileName;
+                    tbCustomHead.Text = CustomHeadFile;
+                }
+            }
+        }
+
+        private void btnDefaultCustomHead_Click(object sender, EventArgs e)
+        {
+            tbCustomHead.Text = "";
+            CustomHeadFile = "";
+        }
+
+        private void tbCustomHead_TextChanged(object sender, EventArgs e)
+        {
+            CustomHeadFile = tbCustomHead.Text;
         }
     }
 }

@@ -1,0 +1,851 @@
+/* ===== Markdown 样式表 - 高对比度与代码高亮 ===== */
+
+/* 基础样式 */
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #0052a3;
+  --text-color: #1a1a1a;
+  --bg-color: #ffffff;
+  --code-bg: #f6f8fa;
+  --border-color: #d0d7de;
+  --link-color: #0969da;
+  --link-hover: #0550ae;
+  --heading-color: #24292f;
+  --blockquote-border: #0969da;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-size: 16px;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  border-bottom: 2px solid transparent;
+}
+
+h1 {
+  font-size: 2.5em;
+  border-bottom-color: var(--primary-color);
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 2em;
+  border-bottom-color: var(--border-color);
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1.1em;
+}
+
+h6 {
+  font-size: 1em;
+  color: #57606a;
+}
+
+/* 段落和文本 */
+p {
+  margin-bottom: 1em;
+  line-height: 1.7;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+em {
+  font-style: italic;
+}
+
+/* 链接 */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* 列表 */
+ul, ol {
+  padding-left: 2em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+  line-height: 1.7;
+}
+
+/* 行内代码 */
+code {
+  background-color: rgba(175, 184, 193, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.9em;
+  color: #d73a49;
+  font-weight: 600;
+}
+
+/* 代码块 */
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  box-shadow: var(--shadow);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1.6;
+  display: block;
+}
+
+/* 语法高亮 - 增强版 GitHub 风格 */
+/* 注释 - 墨绿色 */
+.hljs-comment,
+.hljs-quote {
+  color: #2d6a4f;
+  font-style: italic;
+}
+
+/* 关键字 (如 const, let, function, class) */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #d73a49;
+  font-weight: 600;
+}
+
+/* 数字和布尔值 */
+.hljs-number,
+.hljs-literal,
+.hljs-boolean {
+  color: #005cc5;
+  font-weight: 600;
+}
+
+/* 变量和参数 */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr,
+.hljs-params {
+  color: #24292f;
+}
+
+/* 字符串 */
+.hljs-string,
+.hljs-doctag {
+  color: #032f62;
+  font-weight: 500;
+}
+
+/* 函数名和方法名 */
+.hljs-title,
+.hljs-section,
+.hljs-selector-id,
+.hljs-function .hljs-title {
+  color: #6f42c1;
+  font-weight: 600;
+}
+
+/* 类名和类型 */
+.hljs-type,
+.hljs-class .hljs-title,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #22863a;
+  font-weight: 600;
+}
+
+/* HTML/XML 标签 */
+.hljs-tag,
+.hljs-name {
+  color: #22863a;
+  font-weight: 600;
+}
+
+/* JSON 属性名 */
+.hljs-attr,
+.hljs-attribute {
+  color: #0550ae;
+  font-weight: 600;
+}
+
+/* 正则表达式 */
+.hljs-regexp,
+.hljs-link {
+  color: #032f62;
+}
+
+/* 符号和列表 */
+.hljs-symbol,
+.hljs-bullet {
+  color: #e36209;
+}
+
+/* 元信息 */
+.hljs-meta,
+.hljs-meta-keyword {
+  color: #005cc5;
+}
+
+/* 操作符 */
+.hljs-operator {
+  color: #d73a49;
+}
+
+/* 删除标记 */
+.hljs-deletion {
+  background-color: #ffeef0;
+  color: #d73a49;
+}
+
+/* 添加标记 */
+.hljs-addition {
+  background-color: #e6ffed;
+  color: #22863a;
+}
+
+/* 强调 */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+/* JSON 特殊高亮 */
+.hljs-punctuation {
+  color: #24292f;
+}
+
+/* JavaScript/JSON 空值 */
+.hljs-null {
+  color: #d73a49;
+  font-weight: 600;
+}
+
+/* 属性访问 */
+.hljs-property {
+  color: #24292f;
+}
+
+/* ========================================
+   通用语法高亮类名 (不带 hljs- 前缀)
+   支持自定义高亮系统
+   ======================================== */
+
+/* 注释 - 墨绿色 */
+.comment {
+  color: #2d6a4f;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* 字符串 */
+.string {
+  color: #032f62;
+  font-weight: 500;
+}
+
+/* 关键字 */
+.keyword {
+  color: #d73a49;
+  font-weight: 600;
+}
+
+/* 数字 */
+.number {
+  color: #005cc5;
+  font-weight: 600;
+}
+
+/* 布尔值 */
+.boolean {
+  color: #005cc5;
+  font-weight: 600;
+}
+
+/* 函数名 */
+.function {
+  color: #6f42c1;
+  font-weight: 600;
+}
+
+/* 变量 */
+.variable {
+  color: #24292f;
+}
+
+/* 操作符 */
+.operator {
+  color: #d73a49;
+}
+
+/* 类型 */
+.type {
+  color: #22863a;
+  font-weight: 600;
+}
+
+/* 属性 */
+.property,
+.attr {
+  color: #0550ae;
+  font-weight: 600;
+}
+
+/* 标签 */
+.tag {
+  color: #22863a;
+  font-weight: 600;
+}
+
+/* 符号 */
+.symbol {
+  color: #e36209;
+}
+
+/* null/undefined */
+.null {
+  color: #d73a49;
+  font-weight: 600;
+}
+
+/* 正则表达式 */
+.regexp {
+  color: #032f62;
+}
+
+/* ========================================
+   WebView2 / Edge Markdown 渲染器支持
+   兼容 .editor-colors 和 .lang-* 类
+   ======================================== */
+
+.editor-colors,
+.lang-javascript,
+.lang-python,
+.lang-json,
+.lang-cpp,
+.lang-typescript,
+.lang-html,
+.lang-css {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25em 1.5em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  box-shadow: var(--shadow);
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 嵌套的 pre 标签不要重复样式 */
+.editor-colors pre,
+.lang-javascript pre,
+.lang-python pre,
+.lang-json pre,
+.lang-cpp pre,
+.lang-html pre,
+.lang-css pre {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* 确保嵌套的 div 不影响显示 */
+.editor-colors > div,
+.lang-javascript > div,
+.lang-python > div,
+.lang-json > div,
+.lang-cpp > div {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+/* 优化代码可读性 - 普通文本颜色 */
+.editor-colors pre,
+.lang-javascript pre,
+.lang-python pre,
+.lang-json pre,
+.lang-cpp pre {
+  color: var(--text-color);
+}
+
+/* 引用块 */
+blockquote {
+  border-left: 4px solid var(--blockquote-border);
+  padding-left: 1em;
+  margin: 1.5em 0;
+  color: #57606a;
+  background-color: #f6f8fa;
+  padding: 1em 1em 1em 1.5em;
+  border-radius: 0 8px 8px 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* 水平线 */
+hr {
+  border: none;
+  border-top: 2px solid var(--border-color);
+  margin: 2em 0;
+}
+
+/* 表格 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+thead {
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+}
+
+th {
+  padding: 0.85em 1.2em;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 3px solid var(--secondary-color);
+  font-size: 0.95em;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 0.75em 1.2em;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+/* 斑马纹效果 - 淡色交替 */
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* 悬停效果 - 比斑马纹稍深 */
+tbody tr:hover {
+  background-color: #e9ecef !important;
+  cursor: pointer;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 表格单元格对齐 */
+td:first-child,
+th:first-child {
+  padding-left: 1.5em;
+}
+
+td:last-child,
+th:last-child {
+  padding-right: 1.5em;
+}
+
+/* 图片 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin: 1em 0;
+}
+
+/* 任务列表 */
+input[type="checkbox"] {
+  margin-right: 0.5em;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* 代码语言标签 */
+pre::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  font-size: 0.75em;
+  color: #57606a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+pre {
+  position: relative;
+}
+
+/* 深色主题 (可选) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #58a6ff;
+    --secondary-color: #1f6feb;
+    --text-color: #c9d1d9;
+    --bg-color: #0d1117;
+    --code-bg: #161b22;
+    --border-color: #30363d;
+    --link-color: #58a6ff;
+    --link-hover: #79c0ff;
+    --heading-color: #c9d1d9;
+    --blockquote-border: #58a6ff;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  body {
+    background-color: var(--bg-color);
+  }
+
+  code {
+    background-color: rgba(110, 118, 129, 0.4);
+    color: #ff7b72;
+  }
+
+  blockquote {
+    background-color: var(--code-bg);
+  }
+
+  thead {
+    background: linear-gradient(180deg, #1f6feb 0%, #1158c7 100%);
+    color: #ffffff;
+  }
+
+  /* 深色主题斑马纹 */
+  tbody tr:nth-child(odd) {
+    background-color: #0d1117;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #161b22;
+  }
+
+  tbody tr:hover {
+    background-color: #1c2128 !important;
+  }
+
+  table {
+    border: 1px solid var(--border-color);
+  }
+
+  td {
+    border-bottom: 1px solid #21262d;
+  }
+
+  /* 深色主题语法高亮 */
+  /* 注释 - 墨绿色(深色主题用浅绿色) */
+  .hljs-comment,
+  .hljs-quote {
+    color: #52b788;
+    font-style: italic;
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-subst {
+    color: #ff7b72;
+    font-weight: 600;
+  }
+
+  .hljs-number,
+  .hljs-literal,
+  .hljs-boolean {
+    color: #79c0ff;
+    font-weight: 600;
+  }
+
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-tag .hljs-attr,
+  .hljs-params {
+    color: #c9d1d9;
+  }
+
+  .hljs-string,
+  .hljs-doctag {
+    color: #a5d6ff;
+    font-weight: 500;
+  }
+
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-id,
+  .hljs-function .hljs-title {
+    color: #d2a8ff;
+    font-weight: 600;
+  }
+
+  .hljs-type,
+  .hljs-class .hljs-title,
+  .hljs-built_in,
+  .hljs-builtin-name {
+    color: #7ee787;
+    font-weight: 600;
+  }
+
+  .hljs-tag,
+  .hljs-name {
+    color: #7ee787;
+    font-weight: 600;
+  }
+
+  .hljs-attr,
+  .hljs-attribute {
+    color: #79c0ff;
+    font-weight: 600;
+  }
+
+  .hljs-regexp,
+  .hljs-link {
+    color: #a5d6ff;
+  }
+
+  .hljs-symbol,
+  .hljs-bullet {
+    color: #ffa657;
+  }
+
+  .hljs-meta,
+  .hljs-meta-keyword {
+    color: #79c0ff;
+  }
+
+  .hljs-operator {
+    color: #ff7b72;
+  }
+
+  .hljs-null {
+    color: #ff7b72;
+    font-weight: 600;
+  }
+
+  .hljs-property {
+    color: #c9d1d9;
+  }
+
+  .hljs-deletion {
+    background-color: #490202;
+    color: #ff7b72;
+  }
+
+  .hljs-addition {
+    background-color: #04260f;
+    color: #7ee787;
+  }
+
+  /* 通用类名 - 深色主题 */
+  .comment {
+    color: #52b788;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .string {
+    color: #a5d6ff;
+    font-weight: 500;
+  }
+
+  .keyword {
+    color: #ff7b72;
+    font-weight: 600;
+  }
+
+  .number,
+  .boolean {
+    color: #79c0ff;
+    font-weight: 600;
+  }
+
+  .function {
+    color: #d2a8ff;
+    font-weight: 600;
+  }
+
+  .variable {
+    color: #c9d1d9;
+  }
+
+  .operator {
+    color: #ff7b72;
+  }
+
+  .type {
+    color: #7ee787;
+    font-weight: 600;
+  }
+
+  .property,
+  .attr {
+    color: #79c0ff;
+    font-weight: 600;
+  }
+
+  .tag {
+    color: #7ee787;
+    font-weight: 600;
+  }
+
+  .symbol {
+    color: #ffa657;
+  }
+
+  .null {
+    color: #ff7b72;
+    font-weight: 600;
+  }
+
+  .regexp {
+    color: #a5d6ff;
+  }
+
+  /* WebView2 - 深色主题 */
+  .editor-colors,
+  .lang-javascript,
+  .lang-python,
+  .lang-json,
+  .lang-cpp,
+  .lang-typescript,
+  .lang-html,
+  .lang-css {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+  }
+
+  .editor-colors pre,
+  .lang-javascript pre,
+  .lang-python pre,
+  .lang-json pre,
+  .lang-cpp pre {
+    color: var(--text-color);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  pre {
+    padding: 1em;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+
+  th, td {
+    padding: 0.5em;
+  }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--code-bg);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b949e;
+}
+
+/* 打印样式 */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  pre, code {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+
+  blockquote {
+    border-left: 4px solid #ccc;
+  }
+
+  img {
+    box-shadow: none;
+  }
+}

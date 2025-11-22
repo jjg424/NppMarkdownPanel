@@ -1,3 +1,111 @@
+# MarkdownPanel for Notepad++ (Fork)
+![DllExport Configuration Step 1](set.png)
+
+## Build Fix & New Feature
+
+This is a fork with build fixes and a new feature for custom head content injection.
+
+### Build Environment
+
+Supported Visual Studio versions:
+- **Visual Studio 2019**
+- **Visual Studio 2022**
+
+### Build Fix Steps
+
+If you encounter build errors after cloning, follow these steps:
+
+1. **Copy NuGet packages** from the original project or restore them:
+   - `ColorCode.Portable.1.0.3`
+   - `DllExport.1.7.4`
+   - `Markdig.0.41.1`
+   - `Microsoft.Web.WebView2.1.0.3296.44`
+   - `System.Buffers.4.6.0`
+   - `System.Memory.4.6.0`
+   - `System.Numerics.Vectors.4.6.0`
+   - `System.Runtime.CompilerServices.Unsafe.6.1.0`
+
+2. **Run DllExport.bat** to configure DLL export (**CRITICAL**):
+
+   > **WARNING:** You MUST use **DllExport 1.7.4**. Using DllExport 1.8.1 or skipping this step will cause the plugin to fail loading with error:
+   >
+   > `NppMarkdownPanel.dll is not compatible with the current version of Notepad++`
+
+   - Double-click `DllExport.bat` in the project root
+   - In the popup window:
+     1. Select the solution file `NppMarkdownPanel.sln`
+     2. Ensure **DllExport 1.7.4** is being used (NOT 1.8.1)
+     3. Click **Apply** to inject DllExport into the project
+
+   ![DllExport Configuration Step 1](DllExport_1.7.4_InjectionScreenshot.png)
+   ![DllExport Configuration Step 2](DllExport_1.7.4_InjectionScreenshot2.png)
+
+3. **Modify build.ps1** (if using PowerShell build script):
+
+   Edit the MSBuild path in `build.ps1` to match your Visual Studio installation:
+   ```powershell
+   # For VS 2022 Community
+   $msbuild = "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe"
+
+   # For VS 2022 Professional
+   $msbuild = "C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Current\Bin\MSBuild.exe"
+
+   # For VS 2019 Community
+   $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"
+
+   # For VS 2019 Professional
+   $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+   ```
+
+4. **Build and Package**:
+
+   ```powershell
+   # Step 1: Build the project (ensure no errors)
+   .\build.ps1
+
+   # Step 2: Package the release
+   .\makerelease.ps1
+   ```
+
+   After successful execution, you will find the packaged zip files in the `Release` folder:
+   - `NppMarkdownPanel-0.9.0.0-x86.zip` (32-bit)
+   - `NppMarkdownPanel-0.9.0.0-x64.zip` (64-bit)
+
+### New Feature: Custom Head Content
+
+Added support for injecting custom content into the HTML `<head>` section (after `<title>` tag).
+
+**Usage:**
+1. Open Settings dialog (Plugins -> MarkdownPanel -> Settings)
+2. Find "Custom Head Content" section
+3. Click "..." button to select a file containing HTML tags (e.g., `<script>`, `<meta>`, `<link>`)
+4. The file content will be inserted into the preview HTML's `<head>` section
+
+This feature is useful for:
+- Adding custom JavaScript libraries
+- Including additional meta tags
+- Loading external stylesheets
+
+**Example: head.html**
+
+Create a file named `head.html` with custom HTML tags:
+
+```html
+<!-- Custom JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+<!-- Custom Meta Tags -->
+<meta name="author" content="Your Name">
+
+<!-- Custom External Stylesheet -->
+<link rel="stylesheet" href="https://example.com/custom.css">
+```
+
+Then select this file in Settings to inject these tags into every preview.
+
+---
+
 # MarkdownPanel for Notepad++
 Plugin to preview Markdown files in Notepad++
 
