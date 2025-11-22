@@ -36,8 +36,8 @@ If you encounter build errors after cloning, follow these steps:
      2. Ensure **DllExport 1.7.4** is being used (NOT 1.8.1)
      3. Click **Apply** to inject DllExport into the project
 
-   ![DllExport Configuration Step 1](DllExport 1.7.4 InjectionScreenshot.png)
-   ![DllExport Configuration Step 2](DllExport 1.7.4 InjectionScreenshot2.png)
+   ![DllExport Configuration Step 1](DllExport_1.7.4_InjectionScreenshot.png)
+   ![DllExport Configuration Step 2](DllExport_1.7.4_InjectionScreenshot2.png)
 
 3. **Modify build.ps1** (if using PowerShell build script):
 
